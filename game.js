@@ -1,11 +1,13 @@
 var SceneMenu= new GAME.scene();
 var SceneGame = new GAME.scene();
+
+alert("click block to start!")
 ////////////
 ///ASSETS///
 ////////////
 
 SceneGame.init = function(){
-	alert("Scene has started!");
+	alert("Scene has started! W & S move the block!");
 }
 
 var IMG_player = GAME.image("player.png");
