@@ -2,7 +2,7 @@ var GAME = {
   scene: function(){
     this.objs=[];
     this.add = function(sc){
-      this.objs.push(sc)
+      this.objs.push(Object.create(sc))
     },
     this.init = function(){}
   },
@@ -21,7 +21,7 @@ var GAME = {
     this.canvas.height=this.height;
     this.ctx=this.canvas.getContext("2d");
     this.currentScene = s;
-    this.currentScene.init(); 
+    this.currentScene.init();
     this.timer = window.setInterval(this.loop, this.fps)
 
   },
