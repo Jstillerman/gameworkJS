@@ -26,9 +26,13 @@ var player = {
 var button = {
 	x:100,
 	y:100,
+	img: IMG_player,
 	tick: function(){
-		GAME.draw(IMG_player, this.x, this.y);
+		GAME.draw(this.img, this.x, this.y);
 
+	},
+	click: function(){
+		GAME.changeScene(SceneGame);
 	}
 }
 
@@ -47,6 +51,4 @@ GAME.fps=10;
 GAME.init(SceneMenu);
 MOUSE.init("click");
 
-MOUSE.event = function(){
-	if(MOUSE.isClicked(button.x, button.y, (button.x +100), (button.y+100)))GAME.changeScene(SceneGame);
-};
+

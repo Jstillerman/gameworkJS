@@ -8,6 +8,15 @@ var MOUSE = {
 			x: evt.clientX - rect.left,
 			y: evt.clientY - rect.top
 		};},
+		isClicked: function(obj){
+			topx = obj.x
+			topy = obj.y
+			bottomx = topx + obj.img.width
+			bottomy = topy + obj.img.height
+			if(MOUSE.x >= topx & MOUSE.x <= bottomx & MOUSE.y >= topy & MOUSE.y <= bottomy)return(true);
+			else{return(false)}
+
+		},
 
 		init: function(eventType){
 			console.log("INITIALIZED MOUSE")
@@ -15,19 +24,12 @@ var MOUSE = {
 				var mousePos = MOUSE.getMousePos(evt);
 				MOUSE.x=mousePos.x;
 				MOUSE.y=mousePos.y;
-				MOUSE.event();
+				for(var i = 0; i < GAME.currentScene.objs.length; i ++){
+					if(MOUSE.isClicked(GAME.currentScene.objs[i]))GAME.currentScene.objs[i].click()
+				}
 			}, false);
-		},
-		isClicked: function(topx, topy, bottomx, bottomy){
-			if(MOUSE.x >= topx & MOUSE.x <= bottomx & MOUSE.y >= topy & MOUSE.y <= bottomy)return(true);
-			else{return(false)}
-
 		}
 
 
+
 	}
-
-
-
- 
- 
